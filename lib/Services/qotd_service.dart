@@ -1,26 +1,28 @@
 import 'dart:convert';
 
+import 'package:calendar_app/Controllers/quote_controller.dart';
 import 'package:calendar_app/Models/qoute_model.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class QuoteService {
-  var qoute = Quote('', '').obs;
-  RxBool isLoading = true.obs;
+  static var qoute = Quote('', '').obs;
+  static RxBool isLoading = true.obs;
   static const url = 'https://zenquotes.io/api/today';
 
-  Future<Quote> getQuote() async {
+  Future<void> getQuote() async {
     var response = await GetConnect().get(url);
     if (response.statusCode == 200) {
-      var body = jsonDecode(response.body);
+      var body = jsonDecode(json.encode(response.body[0]));
       isLoading.value = false;
-      return Quote(body['a'], body['q']);
+      qoute.value = Quote(body['a'], body['q']);
+      QuoteController().refresh();
     } else {
       GetSnackBar(
         title: 'Error getting the Quote',
         message: '${response.statusCode}: ${response.statusText}',
       );
-      return Quote('', '');
     }
   }
 }

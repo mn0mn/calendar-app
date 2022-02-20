@@ -4,5 +4,6 @@ import 'package:get/get_connect/connect.dart' show Response;
 
 class Quote {
   final String auther, quote;
+
   Quote(this.auther, this.quote);
 }
