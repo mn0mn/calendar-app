@@ -1,11 +1,12 @@
+import 'package:calendar_app/Controllers/date_controller.dart';
+import 'package:calendar_app/Controllers/position_controller.dart';
+import 'package:calendar_app/Controllers/quote_controller.dart';
 import 'package:calendar_app/Screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-void main(List<String> args) {
+void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  final pref = SharedPreferences.getInstance().then((value) => print('done'));
   runApp(const MyApp());
 }
 
@@ -17,7 +18,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: MainScreen(),
+      initialRoute: '/',
+      initialBinding: BindingsBuilder(
+        () {
+          Get.put(QuoteController());
+          Get.put(DateController());
+        },
+      ),
+      getPages: [GetPage(name: '/', page: () => MainScreen())],
     );
   }
 }

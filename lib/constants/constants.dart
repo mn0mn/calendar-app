@@ -23,3 +23,14 @@ const Map<int, String> MonthsList = {
   DateTime.november: 'november',
   DateTime.december: 'december'
 };
+
+const List<String> times = [
+  'Morning',
+  'Rise',
+  'Noon',
+  'Evening',
+  'Sunset',
+  'Maghreb',
+  'Ishaa',
+  'Midnight'
+];

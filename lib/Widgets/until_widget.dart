@@ -1,11 +1,10 @@
 import 'package:calendar_app/Controllers/date_controller.dart';
-import 'package:calendar_app/Models/times_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MidnightWidget extends StatelessWidget {
-  MidnightWidget({Key? key}) : super(key: key);
+class UntillWidget extends StatelessWidget {
+  UntillWidget({Key? key}) : super(key: key);
 
   final controller = Get.find<DateController>();
   @override
@@ -30,7 +29,7 @@ class MidnightWidget extends StatelessWidget {
                     fontStyle: FontStyle.italic,
                     fontSize: null,
                   ),
-                  text: TimesModel.tillMidnight(controller.now.value))
+                  text: '') //TimesModel.tillMidnight(controller.now.value))
             ],
           ),
         ),

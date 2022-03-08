@@ -1,36 +1,33 @@
-import 'package:flutter/cupertino.dart';
-import 'package:geocode/geocode.dart';
+import 'package:calendar_app/Models/times_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'dart:async';
 
-class LocationService {
-  Position? _position;
-  late Address _address;
+import 'package:get/get.dart';
 
-  get getUserPosition async {
-    return await _getUserPosition();
+class LocationService {
+  get userPosition async {
+    return await getUserPosition();
   }
 
-  Future<void> _getUserPosition() async {
+  Future<Position> getUserPosition() async {
     await Geolocator.requestPermission();
 
-    var pos = await Geolocator.getCurrentPosition(
+    return await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.medium,
       forceAndroidLocationManager: true,
       timeLimit: const Duration(minutes: 1, seconds: 30),
-    ).then((value) => _position = value);
+    );
   }
 
-  Future<void> _getUserAdderss() async {
-    if (_position == null) {
-      await _getUserPosition()
-          .onError((error, stackTrace) => throw error.toString());
-    }
-    try {
-      _address = await GeoCode().reverseGeocoding(
-          latitude: _position!.latitude, longitude: _position!.longitude);
-    } catch (e) {
-      throw e;
-    }
+  static Image getFlag(String location) {
+    return Image.network(
+      'https://countryflagsapi.com/png/${location}',
+      loadingBuilder: (context, child, loadingProgress) =>
+          CircularProgressIndicator(),
+      alignment: Alignment.center,
+      fit: BoxFit.cover,
+    );
   }
 }
