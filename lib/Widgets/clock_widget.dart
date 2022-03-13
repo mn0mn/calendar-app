@@ -46,7 +46,24 @@ class ClockWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        color: Colors.black,
+                        color: color == const Color(0xffffece0)
+                            ? const Color(0xfff2aa65)
+                            : color == const Color(0xffffe9e0)
+                                ? const Color(0xfff28765)
+                                : color == const Color(0xffffe0e0)
+                                    ? const Color(0xfff07767)
+                                    : color == const Color(0xfffcd4d4)
+                                        ? const Color(0xfff07767)
+                                        : color == const Color(0xff18bbe3)
+                                            ? Colors.white
+                                            : color == const Color(0xff3384de)
+                                                ? Colors.white
+                                                : color ==
+                                                        const Color(0xff444fd3)
+                                                    ? Colors.white
+                                                    : color == Colors.white
+                                                        ? Colors.black
+                                                        : Colors.white,
                         height: 8,
                       ),
                       Container(
@@ -62,16 +79,32 @@ class ClockWidget extends StatelessWidget {
               child: Transform.rotate(
                 angle: ((math.pi * 2) / 60) * minute,
                 child: SizedBox(
-                  width: 1.5,
+                  width: 1.9,
                   height: 20,
                   child: Column(
                     children: [
                       Expanded(
                         flex: 1,
                         child: Container(
-                          color: color == Colors.white
-                              ? Colors.black
-                              : Colors.white,
+                          color: color == const Color(0xffffece0)
+                              ? const Color(0xfff2aa65)
+                              : color == const Color(0xffffe9e0)
+                                  ? const Color(0xfff28765)
+                                  : color == const Color(0xffffe0e0)
+                                      ? const Color(0xfff07767)
+                                      : color == const Color(0xfffcd4d4)
+                                          ? const Color(0xfff07767)
+                                          : color == const Color(0xff18bbe3)
+                                              ? Colors.white
+                                              : color == const Color(0xff3384de)
+                                                  ? Colors.white
+                                                  : color ==
+                                                          const Color(
+                                                              0xff444fd3)
+                                                      ? Colors.white
+                                                      : color == Colors.white
+                                                          ? Colors.black
+                                                          : Colors.white,
                         ),
                       ),
                       Expanded(flex: 1, child: Container())

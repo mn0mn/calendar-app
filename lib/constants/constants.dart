@@ -11,17 +11,17 @@ const Map<int, String> weekDaysList = {
 };
 
 const Map<int, String> MonthsList = {
-  DateTime.january: 'january',
-  DateTime.february: 'february',
-  DateTime.march: 'march',
-  DateTime.april: 'april',
-  DateTime.may: 'may',
-  DateTime.june: 'june',
-  DateTime.july: 'july',
-  DateTime.september: 'september',
-  DateTime.october: 'october',
-  DateTime.november: 'november',
-  DateTime.december: 'december'
+  DateTime.january: 'January',
+  DateTime.february: 'February',
+  DateTime.march: 'March',
+  DateTime.april: 'April',
+  DateTime.may: 'May',
+  DateTime.june: 'June',
+  DateTime.july: 'July',
+  DateTime.september: 'September',
+  DateTime.october: 'October',
+  DateTime.november: 'November',
+  DateTime.december: 'December'
 };
 
 const List<String> times = [

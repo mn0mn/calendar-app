@@ -1,11 +1,9 @@
-import 'package:calendar_app/Controllers/position_controller.dart';
 import 'package:calendar_app/Controllers/quote_controller.dart';
-import 'package:calendar_app/Services/qotd_service.dart';
+import 'package:calendar_app/Services/apod_service.dart';
 import 'package:calendar_app/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuoteBox extends StatelessWidget {
@@ -80,11 +78,48 @@ Widget flagBox() {
           SizedBox(
             height: 165,
             child: Container(
-              margin: const EdgeInsets.fromLTRB(12, 12, 12, 0),
-              decoration: BoxDecoration(
-                  color: Colors.red, borderRadius: BorderRadius.circular(30)),
-              child: null,
-            ),
+                margin: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+                decoration: BoxDecoration(
+                    color: Colors.red, borderRadius: BorderRadius.circular(30)),
+                child: Obx(
+                  () => ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Stack(
+                      alignment: Alignment.bottomRight,
+                      children: [
+                        Apod.image.value == ''
+                            ? Container()
+                            : Image.network(
+                                Apod.image.value,
+                                fit: BoxFit.cover,
+                                width: double.maxFinite,
+                              ),
+                        Positioned(
+                          bottom: 1,
+                          right: 0,
+                          child: Container(
+                            padding: const EdgeInsets.all(3),
+                            margin: const EdgeInsets.only(right: 2),
+                            alignment: Alignment.center,
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                  colors: [Colors.black, Colors.transparent],
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter),
+                            ),
+                            child: Text(
+                              Apod.title.value,
+                              style: GoogleFonts.poppins(
+                                color: Colors.grey[100],
+                                fontSize: 12,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )),
           ),
           SizedBox(
             height: 20,

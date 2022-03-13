@@ -40,15 +40,48 @@ class TimeBox extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10),
               child: Text(
                 name,
-                style: GoogleFonts.poppins(fontSize: 16),
+                style: GoogleFonts.poppins(
+                    fontSize: 17.2,
+                    color: color == const Color(0xffffece0)
+                        ? const Color(0xfff2aa65)
+                        : color == const Color(0xffffe9e0)
+                            ? const Color(0xfff28765)
+                            : color == const Color(0xffffe0e0)
+                                ? const Color(0xfff07767)
+                                : color == const Color(0xfffcd4d4)
+                                    ? const Color(0xfff07767)
+                                    : color == const Color(0xff18bbe3)
+                                        ? Colors.white
+                                        : color == const Color(0xff3384de)
+                                            ? Colors.white
+                                            : color == const Color(0xff444fd3)
+                                                ? Colors.white
+                                                : Colors.white),
               ),
             ),
           ],
         ),
         Text(
           '$hour:$minute',
-          style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 30),
-        )
+          style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+              fontSize: 30,
+              color: color == const Color(0xffffece0)
+                  ? const Color(0xfff2aa65)
+                  : color == const Color(0xffffe9e0)
+                      ? const Color(0xfff28765)
+                      : color == const Color(0xffffe0e0)
+                          ? const Color(0xfff07767)
+                          : color == const Color(0xfffcd4d4)
+                              ? const Color(0xfff07767)
+                              : color == const Color(0xff18bbe3)
+                                  ? Colors.white
+                                  : color == const Color(0xff3384de)
+                                      ? Colors.white
+                                      : color == const Color(0xff444fd3)
+                                          ? Colors.white
+                                          : Colors.white),
+        ),
       ]),
     );
   }

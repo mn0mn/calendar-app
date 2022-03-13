@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final welcome = welcomeFromJson(jsonString);
-
 import 'dart:convert';
 
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
@@ -203,7 +199,6 @@ class Hijri {
   final List<dynamic> holidays;
 
   factory Hijri.fromJson(Map<String, dynamic> json) {
-    print(json['year']);
     return Hijri(
       date: json["date"],
       format: json["format"],
@@ -445,4 +440,71 @@ class Timings {
         "Imsak": imsak,
         "Midnight": midnight,
       };
+}
+
+class DateTimeTimings {
+  DateTimeTimings(DateTime now, Timings timings) {
+    morning = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      int.parse(timings.fajr.split(':')[0]),
+      int.parse(timings.fajr.split(':')[1]),
+    );
+    rise = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      int.parse(timings.sunrise.split(':')[0]),
+      int.parse(timings.sunrise.split(':')[1]),
+    );
+    noon = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      int.parse(timings.dhuhr.split(':')[0]),
+      int.parse(timings.dhuhr.split(':')[1]),
+    );
+    evening = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      int.parse(timings.asr.split(':')[0]),
+      int.parse(timings.asr.split(':')[1]),
+    );
+    sunset = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      int.parse(timings.sunset.split(':')[0]),
+      int.parse(timings.sunset.split(':')[1]),
+    );
+    maghreb = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      int.parse(timings.maghrib.split(':')[0]),
+      int.parse(timings.maghrib.split(':')[1]),
+    );
+    ishaa = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      int.parse(timings.isha.split(':')[0]),
+      int.parse(timings.isha.split(':')[1]),
+    );
+    midnight = DateTime(
+      now.year,
+      now.month,
+      timings.midnight.split(':')[0].startsWith('0')
+          ? now.day + 1
+          : int.parse(timings.midnight.split(':')[0]),
+      int.parse(timings.midnight.split(':')[0]),
+      int.parse(timings.midnight.split(':')[1]),
+    );
+  }
+  late DateTime morning, rise, noon, evening, sunset, maghreb, ishaa, midnight;
+
+  List<DateTime> toList() =>
+      [morning, rise, noon, evening, sunset, maghreb, ishaa, midnight];
 }

@@ -44,6 +44,7 @@ class MainScreen extends StatelessWidget {
                     const QuoteBox(),
                     ClockWidget.timesHeader(),
                     timesGrid(context),
+                    UntillWidget()
                   ],
                 ),
               ),
@@ -114,13 +115,13 @@ class MainScreen extends StatelessWidget {
                 TimeBox(
                   hour: controller.timings.value.isha.split(':')[0],
                   minute: controller.timings.value.isha.split(':')[1],
-                  name: 'ishaa',
+                  name: 'Ishaa',
                   color: const Color(0xff3384de),
                 ),
                 TimeBox(
                   hour: controller.timings.value.midnight.split(':')[0],
                   minute: controller.timings.value.midnight.split(':')[1],
-                  name: 'midnight',
+                  name: 'Midnight',
                   color: const Color(0xff444fd3),
                 )
               ],
