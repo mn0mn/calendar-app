@@ -1,7 +1,5 @@
-import 'package:calendar_app/Controllers/date_controller.dart';
 import 'package:calendar_app/Widgets/clock_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TimeBox extends StatelessWidget {

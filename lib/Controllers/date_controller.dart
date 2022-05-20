@@ -1,9 +1,9 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 import 'dart:convert';
 import 'package:calendar_app/Services/location_service.dart';
 import 'package:calendar_app/Services/times_service.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
 import '../Models/times_model.dart';

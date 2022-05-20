@@ -10,7 +10,7 @@ class UntillWidget extends StatelessWidget {
   UntillWidget({Key? key}) : super(key: key);
 
   final controller = Get.find<DateController>();
-  Rx<String> remainingTime = ''.obs;
+  final Rx<String> remainingTime = ''.obs;
 
   String upcomingEvent(DateTime now) {
     if (controller.timings.value.asr != '-:-') {
