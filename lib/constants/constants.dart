@@ -1,5 +1,5 @@
 const headerSVG = 'Assets/images/asset1RectangleMask.svg';
-const QuoteSVG = 'Assets/images/QuoteLabel.svg';
+const quoteSVG = 'Assets/images/QuoteLabel.svg';
 const Map<int, String> weekDaysList = {
   DateTime.monday: 'Monday',
   DateTime.tuesday: 'Tuesday',
@@ -10,7 +10,7 @@ const Map<int, String> weekDaysList = {
   DateTime.sunday: 'sunday'
 };
 
-const Map<int, String> MonthsList = {
+const Map<int, String> monthsList = {
   DateTime.january: 'January',
   DateTime.february: 'February',
   DateTime.march: 'March',

@@ -43,7 +43,7 @@ class TodayWidget extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: '${controller.now.value.day} '
-                          '${MonthsList[controller.now.value.month]}, ',
+                          '${monthsList[controller.now.value.month]}, ',
                       style: GoogleFonts.poppins(
                         fontSize: 36,
                         fontWeight: FontWeight.w700,

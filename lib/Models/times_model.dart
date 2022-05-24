@@ -415,7 +415,6 @@ class Timings {
   final String midnight;
 
   factory Timings.fromJson(Map<String, dynamic> json) {
-    print(json["Asr"]);
     return Timings(
       fajr: json["Fajr"],
       sunrise: json["Sunrise"],

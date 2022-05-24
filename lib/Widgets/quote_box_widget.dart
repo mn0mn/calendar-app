@@ -136,7 +136,7 @@ Widget flagBox() {
             // color: Colors.white,
             ),
         child: SvgPicture.asset(
-          QuoteSVG,
+          quoteSVG,
           allowDrawingOutsideViewBox: true,
           clipBehavior: Clip.none,
           color: Colors.white,

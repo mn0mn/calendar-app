@@ -31,28 +31,33 @@ class DateController extends GetxController {
     imsak: '-:-',
     midnight: '-:-',
   ).obs;
-
   @override
-  Future<void> onInit() async {
+  void onInit() async {
     _dateTimestream.listen(
       (event) {
         now.value = event;
         update();
       },
     );
+
     LocationService().getUserPosition().then((value) {
       print(value.toString());
       return getTimes(value);
-    }).then((value) {
-      if (value == null) {
-        print('null body');
-      } else {
-        print(jsonDecode(value)['data']);
-        timings.value = Timings.fromJson(jsonDecode(value)['data']['timings']);
-        hijri.value =
-            Hijri.fromJson(jsonDecode(value)['data']['date']['hijri']);
-      }
-    });
+    }).then(
+      (value) {
+        if (value == null) {
+          print('null body');
+        } else {
+          print(jsonDecode(value)['data']);
+          timings.value =
+              Timings.fromJson(jsonDecode(value)['data']['timings']);
+          hijri.value =
+              Hijri.fromJson(jsonDecode(value)['data']['date']['hijri']);
+        }
+      },
+    );
+
+    super.onInit();
   }
 
   @override
