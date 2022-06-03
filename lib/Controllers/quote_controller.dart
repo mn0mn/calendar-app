@@ -8,9 +8,10 @@ import 'package:get/get.dart';
 class QuoteController extends GetxController {
   var quote = Quote('auther', 'Quote').obs;
   @override
+  //TODO: rethink this controller
   void onInit() async {
+    Apod().getImage();
     await QuoteService().getQuote().then((value) => quote.value = value);
-    await Apod().getImage();
     super.onInit();
   }
 }

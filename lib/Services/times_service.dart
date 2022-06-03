@@ -2,6 +2,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
 Future<String?> getTimes(Position position) async {
+  //TODO: fix this stupid function
   var url =
       "https://api.aladhan.com/v1/timings/''?latitude=${position.latitude}&longitude=${position.longitude}&method=2";
 
