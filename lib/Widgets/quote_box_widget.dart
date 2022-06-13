@@ -80,7 +80,8 @@ Widget flagBox() {
             child: Container(
                 margin: const EdgeInsets.fromLTRB(12, 12, 12, 0),
                 decoration: BoxDecoration(
-                    color: Colors.red, borderRadius: BorderRadius.circular(30)),
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.circular(30)),
                 child: Obx(
                   () => ClipRRect(
                     borderRadius: BorderRadius.circular(16),
@@ -88,7 +89,9 @@ Widget flagBox() {
                       alignment: Alignment.bottomRight,
                       children: [
                         Apod.image.value == ''
-                            ? Container()
+                            ? Container(
+                                color: Colors.transparent,
+                              )
                             : Image.network(
                                 Apod.image.value,
                                 fit: BoxFit.cover,

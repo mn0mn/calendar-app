@@ -17,6 +17,7 @@ class TodayWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 30),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(
@@ -34,7 +35,7 @@ class TodayWidget extends StatelessWidget {
             },
           ),
           const SizedBox(
-            height: 5,
+            height: 4,
           ),
           Obx(
             () {
@@ -64,7 +65,7 @@ class TodayWidget extends StatelessWidget {
             },
           ),
           const SizedBox(
-            height: 5,
+            height: 4,
           ),
           Obx(
             () => Padding(
@@ -72,10 +73,10 @@ class TodayWidget extends StatelessWidget {
               child: Text(
                 '${ArabicNumbers().convert(controller.hijri.value.day)} ${controller.hijri.value.month.ar}, ${ArabicNumbers().convert(controller.hijri.value.year)}',
                 style: const TextStyle(
-                  letterSpacing: 5,
+                  letterSpacing: 0.2,
                   fontFamily: 'Kalameh',
                   color: Color(0x66ffffff),
-                  fontSize: 19,
+                  fontSize: 20.2,
                 ),
               ),
             ),
