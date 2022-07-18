@@ -144,7 +144,7 @@ Widget flagBox() {
           clipBehavior: Clip.none,
           color: Colors.white,
           cacheColorFilter: true,
-          theme: SvgTheme(currentColor: Colors.grey[300]),
+          theme: SvgTheme(currentColor: Colors.grey.shade300),
           placeholderBuilder: (context) => const CircularProgressIndicator(),
           alignment: Alignment.bottomCenter,
           fit: BoxFit.cover,
