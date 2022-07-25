@@ -16,7 +16,7 @@ class UntillWidget extends StatelessWidget {
     if (controller.timings.value.asr != '-:-') {
       var list = DateTimeTimings(now, controller.timings.value).toList();
       var ans = list.firstWhere((element) => now.isBefore(element));
-      var hour = ((ans.difference(now).inMinutes / 60) + 1).floor();
+      var hour = ((ans.difference(now).inHours)).floor().toString();
       var minute = ans.difference(now).inMinutes.remainder(60).isLowerThan(10)
           ? ans
               .difference(now)
@@ -25,7 +25,7 @@ class UntillWidget extends StatelessWidget {
               .toString()
               .padLeft(2, '0')
           : ans.difference(now).inMinutes.remainder(60).toString();
-      remainingTime.value = (hour).toString() + ':' + (minute).toString();
+      remainingTime.value = hour + ':' + minute;
       return times[list.indexOf(ans)];
     } else {
       return '';
