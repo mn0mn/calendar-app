@@ -21,7 +21,7 @@ class ClockWidget extends StatelessWidget {
         alignment: Alignment.center,
         padding: const EdgeInsets.all(3.4),
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(190, 196, 202, 1),
+          color: Color.fromARGB(255, 199, 207, 214),
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(10),
         ),
